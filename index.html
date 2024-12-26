@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню кафе</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Asad's Oasis</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#"><i class="fas fa-book-open"></i> Меню</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> О нас</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="menu">
+            <div class="menu-container">
+                <div class="menu-items">
+                    <div class="menu-category">
+                        <h3>Закуски</h3>
+                        <ul>
+                            <li>
+                                <img src="b135934d-b590-448f-9207-d9c133c686e7.webp" alt="Салат Цезарь" class="menu-image">
+                                <h4>Салат "Цезарь"</h4>
+                                <div style="display: flex; align-items: center; margin-top: 10px;">
+                                  <span class="price">350 ₽</span>
+                                  <button onclick="showNotification('Салат Цезарь')">Заказать</button>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="6082d510-da3c-4ab8-b880-ab5ee4d4e699.jpeg" alt="Сырные палочки" class="menu-image">
+                                <h4>Сырные палочки</h4>
+                                <div style="display: flex; align-items: center; margin-top: 10px;">
+                                  <span class="price">280 ₽</span>
+                                  <button onclick="showNotification('Сырные палочки')">Заказать</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-category">
+                        <h3>Горячие блюда</h3>
+                        <ul>
+                            <li>
+                                <img src="stejk-iz-govyadinu.jpg" alt="Стейк из говядины" class="menu-image">
+                                <h4>Стейк из говядины</h4>
+                                <div style="display: flex; align-items: center; margin-top: 10px;">
+                                    <span class="price">550 ₽</span>
+                                    <button onclick="showNotification('Стейк из говядины')">Заказать</button>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="1mnwIvZzzWOeomB4xgFRbUnUCBRaZwzbYJ4gBD3f.jpg" alt="Паста Карбонара" class="menu-image">
+                                <h4>Паста Карбонара</h4>
+                                 <div style="display: flex; align-items: center; margin-top: 10px;">
+                                    <span class="price">400 ₽</span>
+                                    <button onclick="showNotification('Паста Карбонара')">Заказать</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-category">
+                        <h3>Напитки</h3>
+                        <ul>
+                            <li>
+                                <img src="2868611791.jpg" alt="Кофе Латте" class="menu-image">
+                                <h4>Кофе Латте</h4>
+                                  <div style="display: flex; align-items: center; margin-top: 10px;">
+                                    <span class="price">150 ₽</span>
+                                     <button onclick="showNotification('Кофе Латте')">Заказать</button>
+                                  </div>
+                            </li>
+                            <li>
+                                <img src="i (3).webp" alt="Чай черный" class="menu-image">
+                                <h4>Чай черный</h4>
+                                 <div style="display: flex; align-items: center; margin-top: 10px;">
+                                    <span class="price">100 ₽</span>
+                                  <button onclick="showNotification('Чай черный')">Заказать</button>
+                                 </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Asad's Oasis. Все права защищены.</p>
+        </div>
+    </footer>
+    <script>
+        function showNotification(dishName) {
+            alert(`Заказ на "${dishName}" успешно оформлен!`);
+        }
+          document.addEventListener('DOMContentLoaded', function () {
+            const menuCategories = document.querySelectorAll('.menu-category');
+
+            menuCategories.forEach((category, index) => {
+                setTimeout(() => {
+                    category.classList.add('show');
+                    const menuItems = category.querySelectorAll('li');
+                    menuItems.forEach((item, itemIndex) => {
+                        setTimeout(() => {
+                            item.classList.add('show')
+                        },itemIndex * 150 )
+                    });
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
